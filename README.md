@@ -1,5 +1,5 @@
 
-**To create a service that automatically monitors the battery status using acpi and restarts upower when needed, follow these steps:
+To create a service that automatically monitors the battery status using acpi and restarts upower when needed, follow these steps:
 
 1. Create a Shell Script
 This script will run acpi -V every 3 seconds and restart upower when it detects a status change.
@@ -9,8 +9,8 @@ Open a text editor to create the script:**
 
 sudo nano /usr/local/bin/battery-monitor.sh
 
-**Add the following content:
-**
+Add the following content:
+
 
 #!/bin/bash
 
