@@ -35,7 +35,6 @@ while true; do
 done
 
 
-
 Save and exit (Ctrl+O, Enter, Ctrl+X).
 
 Make the script executable:
