@@ -1,8 +1,8 @@
-# Battery Monitor Service
+Battery Monitor Service
 
 This script monitors battery status using `acpi` and restarts the `upower` service automatically when it detects a change in the battery state. It is designed to fix delayed battery status updates on some Linux systems.
 
-## Prerequisites
+Prerequisites
 
 Ensure `acpi` is installed on your system:
 ```bash
@@ -12,8 +12,7 @@ Installation
 Step 1: Create the Shell Script
 Open the script file for editing:
 
-bash
-Copy code
+
 sudo nano /usr/local/bin/battery-monitor.sh
 Add the following content:
 
