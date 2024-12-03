@@ -6,39 +6,35 @@ Prerequisites
 
 Ensure `acpi` is installed on your system:
 
-sudo apt install acpi
+`sudo apt install acpi`
 
 Installation
 Step 1: Create the Shell Script
 Open the script file for editing:
 
 
-'s'udo nano /usr/local/bin/battery-monitor.sh
+`sudo nano /usr/local/bin/battery-monitor.sh`
 Add the following content:
 
-bash
-Copy code
+`
 #!/bin/bash
 
 PREVIOUS_STATUS=""
 
 while true; do
-    # Get the battery status using acpi
     CURRENT_STATUS=$(acpi -V | grep -m 1 "Battery 0")
 
-    # Check if the status has changed
     if [[ "$CURRENT_STATUS" != "$PREVIOUS_STATUS" ]]; then
-        # Update the previous status
         PREVIOUS_STATUS="$CURRENT_STATUS"
 
-        # Restart UPower to fix the issue
         echo "Status changed: $CURRENT_STATUS. Restarting UPower..."
         sudo systemctl restart upower.service
     fi
 
-    # Wait for 3 seconds before checking again
     sleep 3
 done
+`
+
 Save and exit (Ctrl+O, Enter, Ctrl+X).
 
 Make the script executable:
