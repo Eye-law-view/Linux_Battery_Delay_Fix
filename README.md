@@ -17,6 +17,7 @@ Open the script file for editing:
 Add the following content:
 
 
+```bash
 #!/bin/bash
 
 PREVIOUS_STATUS=""
@@ -33,6 +34,8 @@ while true; do
 
     sleep 3
 done
+```
+
 
 
 Save and exit (Ctrl+O, Enter, Ctrl+X).
