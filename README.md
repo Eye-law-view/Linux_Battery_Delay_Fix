@@ -42,19 +42,18 @@ Save and exit (Ctrl+O, Enter, Ctrl+X).
 
 Make the script executable:
 
-bash
-Copy code
-sudo chmod +x /usr/local/bin/battery-monitor.sh
+
+`sudo chmod +x /usr/local/bin/battery-monitor.sh`
+
 Step 2: Create a Systemd Service
 Open the service file for editing:
 
-bash
-Copy code
-sudo nano /etc/systemd/system/battery-monitor.service
+
+`sudo nano /etc/systemd/system/battery-monitor.service`
+
 Add the following content:
 
-ini
-Copy code
+```
 [Unit]
 Description=Battery Monitor Service
 After=multi-user.target
@@ -66,27 +65,30 @@ User=root
 
 [Install]
 WantedBy=multi-user.target
-Save and exit (Ctrl+O, Enter, Ctrl+X).
+```
+
+`Save and exit (Ctrl+O, Enter, Ctrl+X).`
 
 Step 3: Enable and Start the Service
+
 Reload systemd to recognize the new service:
+`sudo systemctl daemon-reload`
 
-sudo systemctl daemon-reload
 Enable the service to start at boot:
+`sudo systemctl enable battery-monitor.service`
 
-sudo systemctl enable battery-monitor.service
 Start the service:
-sudo systemctl start battery-monitor.service
+`sudo systemctl start battery-monitor.service`
+
 Check the service status:
-sudo systemctl status battery-monitor.service
+`sudo systemctl status battery-monitor.service`
+
 If the service is not running, start it manually:
-
-
-sudo systemctl start battery-monitor.service
+`sudo systemctl start battery-monitor.service`
 Verification
 To ensure the service runs at boot, reboot your system:
 
 sudo reboot
 After reboot, check the service status:
 
-sudo systemctl status battery-monitor.service
+`sudo systemctl status battery-monitor.service`
