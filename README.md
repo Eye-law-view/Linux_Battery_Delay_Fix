@@ -13,7 +13,7 @@ Step 1: Create the Shell Script
 Open the script file for editing:
 
 
-sudo nano /usr/local/bin/battery-monitor.sh
+'s'udo nano /usr/local/bin/battery-monitor.sh
 Add the following content:
 
 bash
