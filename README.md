@@ -5,7 +5,7 @@ This script monitors battery status using `acpi` and restarts the `upower` servi
 Prerequisites
 
 Ensure `acpi` is installed on your system:
-```bash
+
 sudo apt install acpi
 
 Installation
@@ -72,35 +72,22 @@ Save and exit (Ctrl+O, Enter, Ctrl+X).
 Step 3: Enable and Start the Service
 Reload systemd to recognize the new service:
 
-bash
-Copy code
 sudo systemctl daemon-reload
 Enable the service to start at boot:
 
-bash
-Copy code
 sudo systemctl enable battery-monitor.service
 Start the service:
-
-bash
-Copy code
 sudo systemctl start battery-monitor.service
 Check the service status:
-
-bash
-Copy code
 sudo systemctl status battery-monitor.service
 If the service is not running, start it manually:
 
-bash
-Copy code
+
 sudo systemctl start battery-monitor.service
 Verification
 To ensure the service runs at boot, reboot your system:
-bash
-Copy code
+
 sudo reboot
 After reboot, check the service status:
-bash
-Copy code
+
 sudo systemctl status battery-monitor.service
