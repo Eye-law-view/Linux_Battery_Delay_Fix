@@ -14,7 +14,6 @@ sudo nano /usr/local/bin/battery-monitor.sh
 
 #!/bin/bash
 
-# Variables to store the previous state
 PREVIOUS_STATUS=""
 
 while true; do
