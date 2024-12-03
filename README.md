@@ -16,7 +16,7 @@ Open the script file for editing:
 `sudo nano /usr/local/bin/battery-monitor.sh`
 Add the following content:
 
-`
+
 #!/bin/bash
 
 PREVIOUS_STATUS=""
@@ -33,7 +33,8 @@ while true; do
 
     sleep 3
 done
-`
+
+
 
 Save and exit (Ctrl+O, Enter, Ctrl+X).
 
