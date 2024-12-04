@@ -20,18 +20,33 @@ Add the following content:
 ```bash
 #!/bin/bash
 
-PREVIOUS_STATUS=""
+# File to store the previous state
+PREVIOUS_STATE="/tmp/battery_status"
+
+# Function to get current charging state
+get_battery_status() {
+    acpi -V | grep -m 1 "Battery 0" | awk '{print $3}' | tr -d ','
+}
+
+# Initialize previous state
+CURRENT_STATUS=$(get_battery_status)
+echo "$CURRENT_STATUS" > $PREVIOUS_STATE
 
 while true; do
-    CURRENT_STATUS=$(acpi -V | grep -m 1 "Battery 0")
+    # Get the current battery status
+    CURRENT_STATUS=$(get_battery_status)
+    PREVIOUS_STATUS=$(cat $PREVIOUS_STATE)
 
+    # Check if the state has changed
     if [[ "$CURRENT_STATUS" != "$PREVIOUS_STATUS" ]]; then
-        PREVIOUS_STATUS="$CURRENT_STATUS"
-
-        echo "Status changed: $CURRENT_STATUS. Restarting UPower..."
+        echo "$CURRENT_STATUS" > $PREVIOUS_STATE
+        echo "Battery state changed to: $CURRENT_STATUS. Restarting UPower..."
+        
+        # Restart UPower service
         sudo systemctl restart upower.service
     fi
 
+    # Check every 3 seconds
     sleep 3
 done
 ```
